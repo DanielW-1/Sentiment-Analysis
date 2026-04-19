@@ -38,6 +38,13 @@ aclImdb/
 # Generated plots and metrics are committed (small files, useful on GitHub)
 # results/ is intentionally NOT ignored
 
+# Local build artifacts
+.build/
+report/node_modules/
+report/package-lock.json
+report/package.json
+report/unpacked/
+
 # macOS
 .DS_Store
 
