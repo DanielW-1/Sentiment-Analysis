@@ -22,7 +22,7 @@ env/
 # PyCharm
 .idea/
 
-# Model checkpoints & weights
+# Model checkpoints & weights (large binaries)
 checkpoints/
 *.pt
 *.pth
@@ -35,8 +35,8 @@ data/
 aclImdb/
 *.csv
 
-# Results & figures (generated outputs)
-results/
+# Generated plots and metrics are committed (small files, useful on GitHub)
+# results/ is intentionally NOT ignored
 
 # macOS
 .DS_Store
