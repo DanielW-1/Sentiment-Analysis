@@ -2,6 +2,21 @@ import torch
 import torch.nn as nn
 
 
+class BERTClassifier(nn.Module):
+    def __init__(self, bert_model_name: str = "bert-base-uncased", dropout: float = 0.3):
+        super().__init__()
+        from transformers import BertModel
+        self.bert = BertModel.from_pretrained(bert_model_name)
+        self.dropout = nn.Dropout(dropout)
+        self.fc = nn.Linear(self.bert.config.hidden_size, 1)
+
+    def forward(self, input_ids, attention_mask=None, lengths=None):
+        outputs = self.bert(input_ids=input_ids, attention_mask=attention_mask)
+        pooled = outputs.pooler_output  # [CLS] representation
+        logits = self.fc(self.dropout(pooled)).squeeze(1)
+        return logits
+
+
 class LSTMClassifier(nn.Module):
     def __init__(self, vocab_size, embed_dim=128, hidden_dim=128, num_layers=1, dropout=0.3):
         super().__init__()

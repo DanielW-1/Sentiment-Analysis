@@ -1,0 +1,49 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Virtual environments
+venv/
+env/
+.env
+.venv/
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
+
+# PyCharm
+.idea/
+
+# Model checkpoints & weights
+checkpoints/
+*.pt
+*.pth
+*.ckpt
+*.joblib
+*.pkl
+
+# Data files (large datasets)
+data/
+aclImdb/
+*.csv
+
+# Results & figures (generated outputs)
+results/
+
+# macOS
+.DS_Store
+
+# Logs
+*.log
+logs/
+
+# Distribution / packaging
+*.so

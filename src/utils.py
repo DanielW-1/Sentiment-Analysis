@@ -11,6 +11,7 @@ from sklearn.metrics import accuracy_score, precision_recall_fscore_support, con
 MODEL_REGISTRY = {
     "lstm": "LSTMClassifier",
     "gru": "GRUClassifier",
+    "bert": "BERTClassifier",
 }
 
 

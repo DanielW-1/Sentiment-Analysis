@@ -8,6 +8,32 @@ from torch.utils.data import Dataset
 from preprocess import Vocabulary
 
 
+class BertSentimentDataset(Dataset):
+    def __init__(self, dataframe: pd.DataFrame, tokenizer, max_len: int = 256):
+        self.df = dataframe.reset_index(drop=True)
+        self.tokenizer = tokenizer
+        self.max_len = max_len
+
+    def __len__(self):
+        return len(self.df)
+
+    def __getitem__(self, idx):
+        text = str(self.df.loc[idx, "text"])
+        label = int(self.df.loc[idx, "label"])
+        enc = self.tokenizer(
+            text,
+            max_length=self.max_len,
+            padding="max_length",
+            truncation=True,
+            return_tensors="pt",
+        )
+        return {
+            "input_ids": enc["input_ids"].squeeze(0),
+            "attention_mask": enc["attention_mask"].squeeze(0),
+            "label": torch.tensor(label, dtype=torch.float),
+        }
+
+
 class SentimentDataset(Dataset):
     def __init__(self, dataframe: pd.DataFrame, vocab: Vocabulary, max_len: int = 200):
         self.df = dataframe.reset_index(drop=True)
