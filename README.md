@@ -215,9 +215,9 @@ Example output:
 |-------|----------|-----------|--------|----------|
 | LSTM  | 73.79%   | 73.67%    | 74.05% | 73.86%   |
 | GRU   | 82.49%   | 80.17%    | 86.34% | 83.14%   |
-| BERT  | TBD after training | | | |
+| BERT  | **91.36%**   | **92.20%**    | **90.35%** | **91.27%**   |
 
-GRU outperforms LSTM by ~9% accuracy despite being a simpler architecture. BERT results will be added after fine-tuning.
+BERT significantly outperforms both RNN models, achieving ~9% higher accuracy than GRU and ~18% higher than LSTM. GRU still outperforms LSTM despite being a simpler architecture.
 
 ---
 
